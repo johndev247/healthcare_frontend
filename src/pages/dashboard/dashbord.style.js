@@ -58,3 +58,11 @@ export const Results = styled.div`
     margin-left: 100px;
   }
 `;
+
+export const DiagResultsSection = styled.div`
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  overflow: scroll;
+  margin: 0 auto;
+  max-height: 500px;
+`;

@@ -8,6 +8,7 @@ import {useState} from "react";
 import Login from "./pages/login/Login";
 import SignUp from "./pages/register/SignUp";
 import Dashboard from "./pages/dashboard/Dashboard";
+import Doctors from "./pages/doctors/Doctors";
 function App() {
   const [show, setShow] = useState(false);
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
           <Route path="/dashboard" component={Dashboard} />
+          <Route path="/doctors" component={Doctors} />
         </Switch>
       </div>
       <Footer />

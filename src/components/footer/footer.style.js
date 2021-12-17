@@ -12,4 +12,8 @@ export const FooterSection = styled.footer`
   color: #fff;
   bottom: 0;
   z-index: 3;
+  @media screen and (max-width: 768px) {
+    position: relative;
+    bottom: 0;
+  }
 `;

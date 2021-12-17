@@ -1,12 +1,12 @@
 import {gql} from "graphql-tag";
 
 const ADD_DIAGNOSIS = gql`
-  mutation addDiagnosis(
+  mutation addDiagnosisResult(
     $userFullName: String
     $status: String
     $illness: String
   ) {
-    addDiagnosis(
+    addDiagnosisResult(
       userFullName: $userFullName
       status: $status
       illness: $illness

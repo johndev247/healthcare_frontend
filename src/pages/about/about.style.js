@@ -5,8 +5,8 @@ export const AboutSection = styled.div`
   flex-flow: row;
   justify-content: center;
   align-items: center;
-  padding: 100px 3em 2em 3em;
-  height: 80vh;
+  padding: 100px 3em 0 3em;
+  min-height: 400px;
   @media screen and (max-width: 768px) {
     flex-flow: column;
     padding: 100px 3em 1em 3em;

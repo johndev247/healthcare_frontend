@@ -99,12 +99,15 @@ export const NavItems = styled.li`
     width: 40vw;
     text-align: center;
     background-color: #152878;
+    &:hover {
+      background-color: #152878;
+    }
   }
 `;
 
 export const MidSecImage = styled.img`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: absolute;
 `;
 

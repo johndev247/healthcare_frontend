@@ -6,7 +6,7 @@ export const ResearchSection = styled.div`
   justify-content: center;
   align-items: center;
   padding: 100px 3em 2em 3em;
-  height: 80vh;
+  min-height: 400px;
   @media screen and (max-width: 768px) {
     flex-flow: column;
     padding: 100px 3em 1em 3em;

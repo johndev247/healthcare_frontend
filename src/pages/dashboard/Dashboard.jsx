@@ -4,6 +4,7 @@ import {
   DashboardBg,
   DashboardButton,
   DashboardSection,
+  DiagResultsSection,
   InputBox,
   Results,
 } from "./dashbord.style";
@@ -13,6 +14,8 @@ import {ColumnDiv, RowDiv} from "../../Styles/gloabalStyle";
 import {LoginBtn} from "../login/login.style";
 import DIAGNOSE from "../../graphql/mutations/diagnose";
 import ADD_DIAGNOSIS from "../../graphql/mutations/addDiagnosis";
+import GET_DIAGNOSIS from "../../graphql/queries/getDiagnosis";
+import {Quote, UserCard, UserName} from "../doctors/doctors.style";
 
 const Dashboard = () => {
   const [user, setuser] = useState(null);
@@ -65,7 +68,12 @@ const Dashboard = () => {
     });
   };
 
-  if (loading) {
+  const {data: diagData, loading: gettingDiag} = useQuery(GET_DIAGNOSIS, {
+    onError: (err) => console.log(err),
+    onCompleted: (data) => console.log(data),
+  });
+
+  if (loading || gettingDiag) {
     return <ClipLoader loading={loading} size={150} />;
   }
 
@@ -80,7 +88,9 @@ const Dashboard = () => {
             <DashboardButton>
               <p style={{fontSize: 17}}>Appointments</p>
             </DashboardButton>
-            <DashboardButton>
+            <DashboardButton
+              style={{backgroundColor: "#083076", color: "#Fff"}}
+            >
               <p style={{fontSize: 17}}>Diagnosis</p>
             </DashboardButton>
           </ColumnDiv>
@@ -103,7 +113,9 @@ const Dashboard = () => {
               />
               <LoginBtn
                 onClick={(e) => handleDiadnose(e)}
-                style={{alignSelf: "center"}}
+                style={{
+                  alignSelf: "center",
+                }}
               >
                 Diagnose
               </LoginBtn>
@@ -135,6 +147,38 @@ const Dashboard = () => {
               )}
             </Results>
           </>
+        )}
+        {data.getUser.userType == "doctor" && (
+          <DiagResultsSection>
+            {diagData.getDiagnosis.map((doc, i) => (
+              <>
+                <UserCard key={i}>
+                  <RowDiv>
+                    <Quote>ID: </Quote>
+                    <UserName>{doc.id}</UserName>
+                  </RowDiv>
+                  <RowDiv>
+                    <Quote>Patient:</Quote>
+                    <UserName>{doc.userFullName}</UserName>
+                  </RowDiv>
+                  <RowDiv>
+                    <Quote>Status: </Quote>
+                    <Quote>{doc.status}</Quote>
+                  </RowDiv>
+                  <RowDiv>
+                    <Quote>Illness: </Quote>
+                    <Quote>{doc.illness}</Quote>
+                  </RowDiv>
+                  <RowDiv>
+                    <Quote>Date: </Quote>
+                    <Quote>
+                      {new Date(doc.createdAt).toLocaleDateString()}
+                    </Quote>
+                  </RowDiv>
+                </UserCard>
+              </>
+            ))}
+          </DiagResultsSection>
         )}
       </DashboardBg>
     </DashboardSection>

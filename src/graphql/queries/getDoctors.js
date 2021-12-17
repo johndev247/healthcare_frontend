@@ -14,7 +14,6 @@ const GET_DOCTORS = gql`
         yearOfExperience
         dob
       }
-      a
     }
   }
 `;

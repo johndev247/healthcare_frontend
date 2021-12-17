@@ -1,12 +1,13 @@
 import React from "react";
 import health from "../../assets/healthtest.jpg";
 import {MidSecImage} from "../../components/header/header.style";
+import {AboutSection} from "../about/about.style";
 
 const Home = () => {
   return (
-    <div>
+    <AboutSection>
       <MidSecImage src={health} />
-    </div>
+    </AboutSection>
   );
 };
 
