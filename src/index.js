@@ -15,7 +15,7 @@ import {AUTH_TOKEN} from "./utils/AuthSecrete";
 
 export const user = makeVar(null);
 const httpLink = createHttpLink({
-  uri: "http://localhost:4000/graphql",
+  uri: "https://healthcarebackenddemo.herokuapp.com/graphql",
 });
 const authLink = setContext((_, {headers}) => {
   const token = localStorage.getItem("AUTH_TOKEN");
