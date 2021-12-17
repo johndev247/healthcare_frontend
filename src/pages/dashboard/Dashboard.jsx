@@ -91,7 +91,7 @@ const Dashboard = () => {
             <DashboardButton
               style={{backgroundColor: "#083076", color: "#Fff"}}
             >
-              <p style={{fontSize: 17}}>Diagnosis</p>
+              <p style={{fontSize: 17}}>Diagnoses</p>
             </DashboardButton>
           </ColumnDiv>
         ) : (
